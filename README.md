@@ -1,3 +1,7 @@
+## react, react-scripts, enzyme, TDD
+
+- [React Commonly Faced Problems](https://jscomplete.com/learn/react-beyond-basics/react-cfp)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
