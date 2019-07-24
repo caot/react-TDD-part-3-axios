@@ -4,6 +4,7 @@ import StoreLocator from '../StoreLocator';
 
 describe('StoreLocator', function () {
     let mountedStoreLocator ;
+
     beforeEach(() => {
         mountedStoreLocator = shallow(<StoreLocator />);
     })
@@ -26,4 +27,14 @@ describe('StoreLocator', function () {
         const maps = mountedStoreLocator.find('Map');
         expect(maps.length).toBe(1);
     });
+});
+
+describe('chooseMap', function () {
+    it('updates this.state.currentMap using the location passed to it', () => {
+        let mountedStoreLocator = shallow(<StoreLocator />);
+        let mockEvent = {target: {value: 'testland'}};
+        mountedStoreLocator.instance().chooseMap(mockEvent);
+        console.log(mountedStoreLocator.instance().state)
+        expect(mountedStoreLocator.instance().state.currentMap).toBe('testland.png');
+    })
 });

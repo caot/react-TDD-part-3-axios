@@ -3,11 +3,13 @@
 // }
 
 var mapChooser = (locationName) => {
+    if (!locationName) {
+        locationName = 'none';
+    }
 
-    if (!locationName)
-        locationName = 'default';
+    let imageName = locationName + '.png'
 
-    return locationName + '.jpg';
+    return imageName;
 }
 
 export default mapChooser;
