@@ -4,25 +4,33 @@ import Map from '../Map';
 
 describe('Map', function () {
     let mountedMap;
+    let props;
 
     beforeEach(() => {
-        mountedMap = shallow(<Map />);
-        // console.log(mountedMap.html())
+        props = {
+            location: undefined,
+            imagename: 'testmap.png'
+        }
+        mountedMap = shallow(<Map {...props} />);
     });
 
     it('renders without crashing', () => {
-        let mountedMap = shallow(<Map />);
+        mountedMap = shallow(<Map />);
     });
 
-    it('contain a image', () => {
+    it('contains a image', () => {
         const img = mountedMap.find('img');
         expect(img.length).toBe(1);
     });
 
-    it('display the none map when no params are given', () => {
-        console.log(mountedMap.html());
-        const defaultMap = mountedMap.find({ src: "images/none.png" });
-        console.log(defaultMap.length);
-        expect(defaultMap.length).toBe(1);
+    it('displays the none map when no params are given', () => {
+        let defaultMap = shallow(<Map />);
+        const defaultImage = defaultMap.find({ src: "images/none.png" });
+        expect(defaultImage.length).toBe(1);
+    });
+
+    it('displays the map imagename passed to it', () => {
+        const testMap = mountedMap.find({ src: "images/testmap.png" });
+        expect(testMap.length).toBe(1);
     });
 });

@@ -7,7 +7,6 @@ describe('Button', function () {
 
     beforeEach(() => {
         mountedButton = shallow(<Button />);
-        console.log(mountedButton.html())
     });
 
     it('renders without crashing', () => {
